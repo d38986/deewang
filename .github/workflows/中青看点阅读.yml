@@ -16,6 +16,7 @@ jobs:
       YOUTH_READ3: ${{ secrets.YOUTH_READ3 }}
       YOUTH_READ4: ${{ secrets.YOUTH_READ4 }}
       YOUTH_READ5: ${{ secrets.YOUTH_READ5 }}
+      YOUTH_READ6: ${{ secrets.YOUTH_READ5 }}
     steps:
       - name: Checkout
         uses: actions/checkout@v1
@@ -61,3 +62,9 @@ jobs:
           node Youth_Read.js
         env:
           YOUTH_READ: ${{ secrets.YOUTH_READ5 }}
+          - name: '运行 【中青看点阅读六】'
+        if: env.YOUTH_READ6
+        run: |
+          node Youth_Read.js
+        env:
+          YOUTH_READ: ${{ secrets.YOUTH_READ6 }}
